@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prism Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-grid-glow"></div>
+<div class="background-glow"></div>
+
+<div class="register-container">
+  <div class="register-card">
+    <h1>Rejestracja</h1>
+    <p>Utwórz konto, aby uzyskać dostęp do Prism AI</p>
+
+    <div class="form-group">
+      <input type="text" id="login" placeholder="Login">
+      <input type="password" id="password" placeholder="Hasło">
+      <button onclick="zarejestruj()">Zarejestruj się</button>
+    </div>
+
+    <div id="success-msg" style="display: none; margin-top: 20px; color: #10b981; font-weight: 600; text-align: center;">
+      Rejestracja udana! Przekierowanie...
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-link">← Powrót do strony głównej</a>
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+<script>
+  function zarejestruj() {
+    var login = document.getElementById("login").value;
+    var pass = document.getElementById("password").value;
+    if(!login || !pass) {
+      alert("Proszę wypełnić wszystkie pola!");
+      return;
+    }
+    document.getElementById("success-msg").style.display = "block";
+    setTimeout(function() {
+      window.location.href = "dashboard.html";
+    }, 1500);
+
+    window.localStorage.setItem("userLogin", login);
+    window.localStorage.setItem("userPassword", pass);
+
+  }
+</script>
+</body>
+</html>

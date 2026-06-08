@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prism Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-grid-glow"></div>
+
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <h2><a href="index.html" style="color: inherit; text-decoration: none;">PRISM</a></h2>
+    <ul>
+      <li id="btn-main" class="active" onclick="pokazatSekciju('dashboard-main')">Dashboard</li>
+      <li id="btn-conf" onclick="pokazatSekciju('conferences')">Konferencje</li>
+      <li id="btn-ai" onclick="pokazatSekciju('ai-translation')">Tłumaczenie AI</li>
+      <li id="btn-sett" onclick="pokazatSekciju('settings')">Ustawienia</li>
+    </ul>
+  </aside>
+
+  <main class="dashboard-content">
+    
+    <div id="dashboard-main">
+      <h1>Witamy w Prism AI</h1>
+      <div class="dashboard-cards">
+        <div class="dash-card">
+          <h3>Aktywne tłumaczenia</h3>
+          <span>128</span>
+        </div>
+        <div class="dash-card">
+          <h3>Połączone kraje</h3>
+          <span>43</span>
+        </div>
+        <div class="dash-card">
+          <h3>Dokładność AI</h3>
+          <span>98.7%</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="conferences" style="display: none;">
+      <h1>Planer Konferencji</h1>
+      
+      <div class="register-card" style="width: 100%; margin-top: 20px; background: rgba(17, 24, 39, 0.6);">
+        <h3>Zaplanuj nowe wydarzenie</h3>
+        <div style="display: flex; gap: 15px; margin-top: 20px; align-items: center; flex-wrap: wrap;">
+          <input type="text" id="conf-name" placeholder="Nazwa konferencji" style="flex: 2; margin: 0;">
+          <input type="date" id="conf-date" style="flex: 1; margin: 0;">
+          <button onclick="dodajKonferencje()" style="width: auto; padding: 16px 35px; margin: 0;">Dodaj</button>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 40px;">Twoje zaplanowane wydarzenia:</h3>
+      <div id="conf-list" style="margin-top: 20px;">
+        <p style="color: #6b7280;">Nie masz jeszcze zaplanowanych konferencji.</p>
+      </div>
+    </div>
+
+    <div id="ai-translation" style="display: none;"><h1>Tłumaczenie AI</h1></div>
+    <div id="settings" style="display: none;"><h1>Ustawienia</h1></div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
